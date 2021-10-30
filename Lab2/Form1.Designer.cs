@@ -48,25 +48,27 @@ namespace Lab2
             this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.picDrawingSurface = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.colorStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.colorToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.picDrawingSurface = new System.Windows.Forms.PictureBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.MenuStrip = new System.Windows.Forms.ToolStrip();
+            this.exitToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDrawingSurface)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.MenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -77,7 +79,7 @@ namespace Lab2
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(804, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(836, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -100,6 +102,7 @@ namespace Lab2
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
             this.newToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.newToolStripMenuItem.Text = "New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
@@ -108,6 +111,7 @@ namespace Lab2
             this.openToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F2;
             this.openToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
@@ -117,6 +121,7 @@ namespace Lab2
             this.saveToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F3;
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -130,6 +135,7 @@ namespace Lab2
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.E)));
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
@@ -182,7 +188,7 @@ namespace Lab2
             this.dashDotDotToolStripMenuItem});
             this.styleToolStripMenuItem.Image = global::Lab2.Properties.Resources.style;
             this.styleToolStripMenuItem.Name = "styleToolStripMenuItem";
-            this.styleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.styleToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.styleToolStripMenuItem.Text = "Style";
             // 
             // solidToolStripMenuItem
@@ -209,7 +215,7 @@ namespace Lab2
             // 
             this.colorToolStripMenuItem.Image = global::Lab2.Properties.Resources.color;
             this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-            this.colorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.colorToolStripMenuItem.Text = "Color";
             // 
             // helpToolStripMenuItem
@@ -225,28 +231,53 @@ namespace Lab2
             this.aboutToolStripMenuItem.Image = global::Lab2.Properties.Resources.about;
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // toolStrip1
+            // picDrawingSurface
             // 
-            this.toolStrip1.AutoSize = false;
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newToolStripButton,
-            this.toolStripSeparator3,
-            this.openToolStripButton,
-            this.toolStripSeparator4,
-            this.saveToolStripButton,
-            this.toolStripSeparator7,
-            this.colorStripButton1,
-            this.toolStripSeparator8,
-            this.exitStripButton2});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(105, 552);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
+            this.picDrawingSurface.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picDrawingSurface.Location = new System.Drawing.Point(3, 2);
+            this.picDrawingSurface.Name = "picDrawingSurface";
+            this.picDrawingSurface.Size = new System.Drawing.Size(700, 500);
+            this.picDrawingSurface.TabIndex = 2;
+            this.picDrawingSurface.TabStop = false;
+            this.picDrawingSurface.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picDrawingSurface_MouseDown);
+            // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.trackBar1);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(111, 521);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(717, 45);
+            this.panel1.TabIndex = 3;
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(496, 3);
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(218, 45);
+            this.trackBar1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.picDrawingSurface);
+            this.panel2.Location = new System.Drawing.Point(108, 22);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(720, 493);
+            this.panel2.TabIndex = 4;
             // 
             // newToolStripButton
             // 
@@ -257,6 +288,7 @@ namespace Lab2
             this.newToolStripButton.Name = "newToolStripButton";
             this.newToolStripButton.Size = new System.Drawing.Size(103, 100);
             this.newToolStripButton.Text = "&New";
+            this.newToolStripButton.Click += new System.EventHandler(this.newToolStripButton_Click);
             // 
             // toolStripSeparator3
             // 
@@ -272,6 +304,7 @@ namespace Lab2
             this.openToolStripButton.Name = "openToolStripButton";
             this.openToolStripButton.Size = new System.Drawing.Size(103, 100);
             this.openToolStripButton.Text = "&Open";
+            this.openToolStripButton.Click += new System.EventHandler(this.openToolStripButton_Click);
             // 
             // toolStripSeparator4
             // 
@@ -287,93 +320,81 @@ namespace Lab2
             this.saveToolStripButton.Name = "saveToolStripButton";
             this.saveToolStripButton.Size = new System.Drawing.Size(103, 100);
             this.saveToolStripButton.Text = "&Save";
+            this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripButton_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(103, 6);
             // 
-            // colorStripButton1
+            // colorToolStripButton
             // 
-            this.colorStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.colorStripButton1.Image = global::Lab2.Properties.Resources.color;
-            this.colorStripButton1.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.colorStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.colorStripButton1.Name = "colorStripButton1";
-            this.colorStripButton1.Size = new System.Drawing.Size(103, 100);
-            this.colorStripButton1.Text = "toolStripButton1";
-            this.colorStripButton1.ToolTipText = "Color";
+            this.colorToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.colorToolStripButton.Image = global::Lab2.Properties.Resources.color;
+            this.colorToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.colorToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.colorToolStripButton.Name = "colorToolStripButton";
+            this.colorToolStripButton.Size = new System.Drawing.Size(103, 100);
+            this.colorToolStripButton.Text = "&Color";
+            this.colorToolStripButton.ToolTipText = "Color";
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
             this.toolStripSeparator8.Size = new System.Drawing.Size(103, 6);
             // 
-            // exitStripButton2
+            // MenuStrip
             // 
-            this.exitStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.exitStripButton2.Image = global::Lab2.Properties.Resources.exit;
-            this.exitStripButton2.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.exitStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.exitStripButton2.Name = "exitStripButton2";
-            this.exitStripButton2.Size = new System.Drawing.Size(103, 100);
-            this.exitStripButton2.Text = "toolStripButton2";
-            this.exitStripButton2.ToolTipText = "Exit";
+            this.MenuStrip.AutoSize = false;
+            this.MenuStrip.Dock = System.Windows.Forms.DockStyle.Left;
+            this.MenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripButton,
+            this.toolStripSeparator3,
+            this.openToolStripButton,
+            this.toolStripSeparator4,
+            this.saveToolStripButton,
+            this.toolStripSeparator7,
+            this.colorToolStripButton,
+            this.toolStripSeparator8,
+            this.exitToolStripButton});
+            this.MenuStrip.Location = new System.Drawing.Point(0, 24);
+            this.MenuStrip.Name = "MenuStrip";
+            this.MenuStrip.Size = new System.Drawing.Size(105, 568);
+            this.MenuStrip.TabIndex = 1;
+            this.MenuStrip.Text = "&Menu";
             // 
-            // picDrawingSurface
+            // exitToolStripButton
             // 
-            this.picDrawingSurface.Location = new System.Drawing.Point(108, 24);
-            this.picDrawingSurface.Name = "picDrawingSurface";
-            this.picDrawingSurface.Size = new System.Drawing.Size(684, 493);
-            this.picDrawingSurface.TabIndex = 2;
-            this.picDrawingSurface.TabStop = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.trackBar1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(108, 523);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(684, 49);
-            this.panel1.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(479, 13);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(202, 45);
-            this.trackBar1.TabIndex = 1;
+            this.exitToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.exitToolStripButton.Image = global::Lab2.Properties.Resources.exit;
+            this.exitToolStripButton.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.exitToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.exitToolStripButton.Name = "exitToolStripButton";
+            this.exitToolStripButton.Size = new System.Drawing.Size(103, 100);
+            this.exitToolStripButton.Text = "&Exit";
+            this.exitToolStripButton.Click += new System.EventHandler(this.exitToolStripButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 576);
+            this.ClientSize = new System.Drawing.Size(836, 592);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.picDrawingSurface);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.MenuStrip);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Lab2";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDrawingSurface)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.MenuStrip.ResumeLayout(false);
+            this.MenuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,20 +421,21 @@ namespace Lab2
         private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton newToolStripButton;
-        private System.Windows.Forms.ToolStripButton openToolStripButton;
-        private System.Windows.Forms.ToolStripButton saveToolStripButton;
-        private System.Windows.Forms.ToolStripButton colorStripButton1;
-        private System.Windows.Forms.ToolStripButton exitStripButton2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.PictureBox picDrawingSurface;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ToolStripButton newToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton openToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripButton saveToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripButton colorToolStripButton;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
+        private System.Windows.Forms.ToolStrip MenuStrip;
+        private System.Windows.Forms.ToolStripButton exitToolStripButton;
     }
 }
 
