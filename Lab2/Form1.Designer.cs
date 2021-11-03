@@ -50,8 +50,11 @@ namespace Lab2
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.picDrawingSurface = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.label_XY = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
@@ -63,6 +66,7 @@ namespace Lab2
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.MenuStrip = new System.Windows.Forms.ToolStrip();
             this.exitToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picDrawingSurface)).BeginInit();
             this.panel1.SuspendLayout();
@@ -155,6 +159,7 @@ namespace Lab2
             this.undoToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.undoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.undoToolStripMenuItem.Text = "Undo";
+            this.undoToolStripMenuItem.Click += new System.EventHandler(this.undoToolStripMenuItem_Click);
             // 
             // renoToolStripMenuItem
             // 
@@ -164,6 +169,7 @@ namespace Lab2
             | System.Windows.Forms.Keys.Z)));
             this.renoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.renoToolStripMenuItem.Text = "Redo";
+            this.renoToolStripMenuItem.Click += new System.EventHandler(this.renoToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -198,18 +204,21 @@ namespace Lab2
             this.solidToolStripMenuItem.Name = "solidToolStripMenuItem";
             this.solidToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.solidToolStripMenuItem.Text = "Solid";
+            this.solidToolStripMenuItem.Click += new System.EventHandler(this.solidToolStripMenuItem_Click);
             // 
             // dotToolStripMenuItem
             // 
             this.dotToolStripMenuItem.Name = "dotToolStripMenuItem";
             this.dotToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.dotToolStripMenuItem.Text = "Dot";
+            this.dotToolStripMenuItem.Click += new System.EventHandler(this.dotToolStripMenuItem_Click);
             // 
             // dashDotDotToolStripMenuItem
             // 
             this.dashDotDotToolStripMenuItem.Name = "dashDotDotToolStripMenuItem";
             this.dashDotDotToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.dashDotDotToolStripMenuItem.Text = "DashDotDot";
+            this.dashDotDotToolStripMenuItem.Click += new System.EventHandler(this.dashDotDotToolStripMenuItem_Click);
             // 
             // colorToolStripMenuItem
             // 
@@ -217,6 +226,7 @@ namespace Lab2
             this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
             this.colorToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.colorToolStripMenuItem.Text = "Color";
+            this.colorToolStripMenuItem.Click += new System.EventHandler(this.colorToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -237,23 +247,58 @@ namespace Lab2
             // 
             // picDrawingSurface
             // 
+            this.picDrawingSurface.BackColor = System.Drawing.Color.White;
             this.picDrawingSurface.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picDrawingSurface.Location = new System.Drawing.Point(3, 2);
+            this.picDrawingSurface.Location = new System.Drawing.Point(3, 5);
             this.picDrawingSurface.Name = "picDrawingSurface";
             this.picDrawingSurface.Size = new System.Drawing.Size(700, 500);
             this.picDrawingSurface.TabIndex = 2;
             this.picDrawingSurface.TabStop = false;
             this.picDrawingSurface.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picDrawingSurface_MouseDown);
+            this.picDrawingSurface.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picDrawingSurface_MouseMove);
+            this.picDrawingSurface.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picDrawingSurface_MouseUp);
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.trackBar1);
+            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.trackBar1);
+            this.panel1.Controls.Add(this.label_XY);
             this.panel1.Location = new System.Drawing.Point(111, 521);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(717, 45);
             this.panel1.TabIndex = 3;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(210, 9);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(46, 23);
+            this.textBox1.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(244, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 15);
+            this.label2.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(111, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 19);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Current color:";
             // 
             // trackBar1
             // 
@@ -261,15 +306,15 @@ namespace Lab2
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(218, 45);
             this.trackBar1.TabIndex = 1;
+            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
-            // label1
+            // label_XY
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.label_XY.AutoSize = true;
+            this.label_XY.Location = new System.Drawing.Point(3, 13);
+            this.label_XY.Name = "label_XY";
+            this.label_XY.Size = new System.Drawing.Size(0, 15);
+            this.label_XY.TabIndex = 0;
             // 
             // panel2
             // 
@@ -337,6 +382,7 @@ namespace Lab2
             this.colorToolStripButton.Size = new System.Drawing.Size(103, 100);
             this.colorToolStripButton.Text = "&Color";
             this.colorToolStripButton.ToolTipText = "Color";
+            this.colorToolStripButton.Click += new System.EventHandler(this.colorToolStripButton_Click);
             // 
             // toolStripSeparator8
             // 
@@ -424,7 +470,7 @@ namespace Lab2
         private System.Windows.Forms.PictureBox picDrawingSurface;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_XY;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ToolStripButton newToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
@@ -436,6 +482,10 @@ namespace Lab2
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStrip MenuStrip;
         private System.Windows.Forms.ToolStripButton exitToolStripButton;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
